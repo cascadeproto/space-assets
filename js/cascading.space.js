@@ -98,9 +98,9 @@ ready(function(){
   const bearLink = document.querySelector('.bear a');
   const bearWatcher = new IntersectionObserver(function(e){
     console.log('Observer entry:');
-    console.log(e);
+    console.log(e[0]);
     if (e.isIntersecting) {
-      scramble(e);
+      scramble(e[0]);
       bearWatcher.unobserve(bearLink);
       setTimeout(() => {
         bearWatcher.observe(bearLink);
