@@ -89,10 +89,23 @@ ready(function(){
   };
   next();
 
-  // Set up Text Scrambler on content headings, and the Bear notice
-  document.querySelectorAll('main h1, main h2, .bear a').forEach(function(el){
+  // Set up Text Scrambler on content headings
+  document.querySelectorAll('main h1, main h2').forEach(function(el){
     el.addEventListener("mouseenter", scramble);
   });
+
+  // Scroll trigger for Bear notice
+  const bearLink = document.querySelector('.bear a');
+  const bearWatcher = new IntersectionObserver(function(e){
+    if (e.isIntersecting) {
+      scramble(e);
+      bearWatcher.unobserve(bearLink);
+      setTimeout(() => {
+        bearWatcher.observe(bearLink);
+      }, 12000);
+    }
+  });
+  bearWatcher.observe(bearLink);
 
   // Set up and animate the starfield background
   var starsNumber = 2000,
