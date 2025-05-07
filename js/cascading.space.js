@@ -1,3 +1,4 @@
+console.log('JS loaded!');
 // Document Ready Function
 function ready(callback){
   if (document.readyState!='loading') callback();
