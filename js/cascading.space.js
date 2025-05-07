@@ -97,6 +97,8 @@ ready(function(){
   // Scroll trigger for Bear notice
   const bearLink = document.querySelector('.bear a');
   const bearWatcher = new IntersectionObserver(function(e){
+    console.log('Observer entry:');
+    console.log(e);
     if (e.isIntersecting) {
       scramble(e);
       bearWatcher.unobserve(bearLink);
@@ -106,6 +108,8 @@ ready(function(){
     }
   });
   bearWatcher.observe(bearLink);
+  console.log("Observer started:");
+  console.log(bearWatcher);
 
   // Set up and animate the starfield background
   var starsNumber = 2000,
