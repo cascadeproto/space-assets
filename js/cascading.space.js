@@ -99,7 +99,7 @@ ready(function(){
   const bearWatcher = new IntersectionObserver(function(e){
     console.log('Observer entry:');
     console.log(e[0]);
-    if (e.isIntersecting) {
+    if (e[0].isIntersecting) {
       scramble(e[0]);
       bearWatcher.unobserve(bearLink);
       setTimeout(() => {
