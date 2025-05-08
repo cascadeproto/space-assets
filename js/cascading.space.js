@@ -42,11 +42,15 @@ class TextScramble {
         complete++;
         output += to;
       } else if (this.frame >= start) {
-        if (!char || Math.random() < 0.28) {
+        if (!char || Math.random() < 0.2) {
           char = this.randomChar();
           this.queue[i].char = char;
         }
-        output += `<span class="dud">${char}</span>`;
+        if (from == ' '){
+          output += from;
+        } else {
+          output += `<span class="dud">${char}</span>`;
+        }
       } else {
         output += from;
       }
