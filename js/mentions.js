@@ -51,7 +51,7 @@
       button.style.color = "salmon";
       const upvoteCount = document.querySelector('.upvote-count');
       upvoteCount.innerHTML = `${(parseInt(upvoteCount.innerHTML.split(" ")[0]) + 1)}`;
-      document.querySelector('.like-count').innerHTML = `${(parseInt(upvoteCount.innerHTML.split(" ")[0]) + 1)}`;
+      document.querySelector('.like-count').innerHTML = `${(parseInt(document.querySelector('.like-count').innerHTML.split(" ")[0]) + 1)}`;
     });
   }
 })();
